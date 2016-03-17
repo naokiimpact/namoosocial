@@ -1,0 +1,172 @@
+
+.noRecoDiv {
+	text-align: center;
+	width: 90%;
+	border: 1px solid #cccccc;
+	padding: 10%;
+	margin-left: 5%;
+	margin-bottom: 10px;
+	border-radius: 10px;
+}
+
+.recoControlDiv {
+	margin-left: 7%;
+}
+
+.recoDiv {
+	margin-left: 7%;
+}
+
+.recoGroup {
+	margin: 10px 10px 10px 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.recoImg {
+	margin: 5px;
+	border-radius: 10px;
+	width: 20%;
+	float: left;
+	height: 35px;
+}
+
+.followBtn {
+	color: #444444;
+	font-weight: bold;
+}
+
+.followBtnIcon {
+	color: #55acee;
+}
+
+.mainDiv {
+	margin-left: 9%;
+}
+
+.profileDiv {
+	margin-top: 5%;
+	text-align: center;
+}
+
+#mainProfileImg {
+	margin: 5px;
+	border-radius: 10px;
+	width: 30%;
+	margin-left: 35%;
+	max-height: 150px;
+}
+
+.profileName {
+	font-size: 20px;
+}
+
+.profileHR {
+	margin: 0;
+	border: 1px solid #dddddd;
+}
+
+.profileCount {
+	font-size: 15px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.countDivF {
+	float: left;
+	width: 34%;
+}
+
+.countDivM {
+	float: left;
+	width: 32%;
+}
+
+.countTitle {
+	font-size: 8px;
+	margin-bottom: -5px;
+	color: #aaaaaa;
+}
+
+.countNo {
+	color: #55acee;
+	font-weight: bold;
+}
+
+.userlistBody {
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	margin-top: 10px;
+}
+
+.userlistImg {
+	margin: 5px;
+	border-radius: 10px;
+	width: 10%;
+	float: left;
+}
+
+.userListProfile {
+	float: left;
+	padding: 5px;
+}
+
+@media screen and (max-width: 768px) {
+	
+	.sideProfile {
+		padding: 5%;
+	}
+	
+	.recoControlDiv {
+		margin: -5%;
+		margin-top: 20%;
+		padding: 0;
+		font-size: 7px;
+	}
+	
+	.recoDiv {
+		margin: 0;
+		padding: 0;
+	}
+	
+	.recoGroup {
+		text-align: center;
+		border: 1px solid #555555;
+		margin: 0;
+		margin-top: 5px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		border-radius: 10px;
+		font-size: 12px;
+		width: 100%;
+	}
+	
+	.recoProfileDiv {
+		min-height: 20px;
+		max-height: 20px;
+		height: auto !important;
+	}
+	
+	.recoImg {
+		magin: 0;
+		padding: 0;	
+	}
+	
+	.followBtn {
+		font-size: 10px;
+		margin-top: 5px;
+		padding: 3px;
+	}
+	
+	.followBtnIcon {
+		display: none;
+	}
+	
+	#mainProfileImg {
+		margin: 5px;
+		border-radius: 10px;
+		width: 80%;
+		margin-left: 9%;
+		max-height: 50px;
+	}
+}

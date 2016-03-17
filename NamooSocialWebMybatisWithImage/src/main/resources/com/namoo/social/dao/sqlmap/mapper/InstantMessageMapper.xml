@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.namoo.social.dao.sqlmap.mapper.InstantMessageMapper">
+    
+    <resultMap type="InstantMessage" id="result-instant">
+    	<id property="instantNo" column="instant_no" javaType="int"/>
+    	<result property="sender.userId" column="sender" javaType="string"/>
+    	<result property="recipient.userId" column="recipient" javaType="string"/>
+    	<result property="message" column="message" javaType="String"/>
+    	<result property="regDate" column="reg_dt" javaType="date"/>
+    </resultMap>
+    
+    <select id="selectAllInstantMessagesByUserId" parameterType="string" resultMap="result-instant">
+    	SELECT
+    		instant_no, sender, recipient, message, reg_dt
+    	FROM instant_tb
+    	WHERE recipient = #{userId}
+    </select>
+    
+	<insert id="insertInstantMessage" parameterType="InstantMessage" useGeneratedKeys="true" keyProperty="instantNo">
+		INSERT
+		INTO instant_tb ( 
+			sender, recipient, message, reg_dt )
+		VALUES ( 
+			#{sender.userId}, #{recipient.userId}, #{message}, sysdate() )
+	</insert>
+	
+	<delete id="deleteInstantMessagesByUserId" parameterType="map">
+		DELETE 
+		FROM instant_tb 
+		WHERE recipient = #{userId}
+		<!-- <![CDATA[
+		AND instant_no <= #{instantNo}
+		]]> -->
+	</delete>
+
+</mapper>

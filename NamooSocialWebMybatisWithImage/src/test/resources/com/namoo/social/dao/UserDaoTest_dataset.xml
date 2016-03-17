@@ -1,0 +1,14 @@
+<dataset>
+	
+	<user_tb userid="user1" name="유저1" email="user1@msg.com" password="1234" />
+	<user_tb userid="user2" name="유저2" email="user2@msg.com" password="1234" />
+	<user_tb userid="user3" name="유저3" email="user3@msg.com" password="1234" />
+	<user_tb userid="user4" name="유저4" email="user4@msg.com" password="1234" />
+	
+	<usertouser_tb who="user1" whom="user2" />
+	<usertouser_tb who="user1" whom="user3" />
+	<usertouser_tb who="user2" whom="user3" />
+	<usertouser_tb who="user3" whom="user1" />
+	<usertouser_tb who="user3" whom="user2" />
+	
+</dataset>

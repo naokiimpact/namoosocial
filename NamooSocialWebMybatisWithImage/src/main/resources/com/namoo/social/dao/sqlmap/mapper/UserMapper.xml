@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.namoo.social.dao.sqlmap.mapper.UserMapper">
+    
+    <resultMap type="User" id="result-user">
+    	<id property="userId" column="userid" javaType="string"/>
+    	<result property="name" column="name" javaType="string"/>
+    	<result property="email" column="email" javaType="string"/>
+    	<result property="password" column="password" javaType="string"/>
+    	
+    	<association property="profile" javaType="Profile">
+	    	<result property="introduction" column="introduction" javaType="string"/>
+	    	<result property="region" column="region" javaType="string"/>
+	    	<result property="homepage" column="homepage" javaType="string"/>
+		    <association property="image" javaType="ImageFile">
+	    		<result property="contentType" column="img_type" javaType="string"/>
+	    		<result property="fileName" column="img_file" javaType="string"/>
+	    	</association>
+    	</association>
+    	<association property="userStatus" javaType="UserStatus">
+    		<result property="userStatus" column="user_status" javaType="boolean"/>
+    		<result property="renewDate" column="renew_date" javaType="date"/>
+    	</association>
+    </resultMap>
+    
+    <select id="selectAllUsers" resultMap="result-user">
+    	SELECT
+	    	userid,
+	    	name,
+	    	email,
+	    	introduction,
+	    	region,
+	    	homepage,
+	    	img_file,
+	    	img_type
+    	FROM user_tb
+    </select>
+    
+    <select id="selectUsersByKeyword" parameterType="string" resultMap="result-user">
+    	SELECT
+	    	userid,
+	    	name,
+	    	email,
+	    	introduction,
+	    	region,
+	    	homepage,
+	    	img_file,
+	    	img_type
+    	FROM user_tb
+    	WHERE userid like '%${value}%' OR name like '%${value}%'
+    </select>
+    
+    <select id="selectUser" parameterType="string" resultMap="result-user">
+    	SELECT
+    		userid,
+    		name,
+    		email,
+    		password,
+	    	introduction,
+	    	region,
+	    	homepage,
+	    	img_file,
+	    	img_type,
+	    	user_status,
+	    	renew_date
+    	FROM user_tb
+    	WHERE userid = #{userId}
+    </select>
+    
+    <select id="selectAllFollowings" parameterType="string" resultMap="result-user">
+    	SELECT
+    		a.userid,
+    		a.name,
+    		a.email,
+	    	a.introduction,
+	    	a.region,
+	    	a.homepage,
+	    	a.img_file,
+	    	a.img_type
+    	FROM user_tb a
+    	INNER JOIN usertouser_tb b
+    	ON a.userid = b.whom
+    	WHERE b.who = #{userId}
+    </select>
+    
+    <select id="selectAllFollowers" parameterType="string" resultMap="result-user">
+    	SELECT
+    		a.userid,
+    		a.name,
+    		a.email,
+	    	a.introduction,
+	    	a.region,
+	    	a.homepage,
+	    	a.img_file,
+	    	a.img_type
+    	FROM user_tb a
+    	INNER JOIN usertouser_tb b
+    	ON a.userid = b.who
+    	WHERE b.whom = #{userId}
+    </select>
+    
+    <select id="selectAllFollowingsNotYet" parameterType="string" resultMap="result-user">
+    	SELECT 
+    		userid,
+    		name,
+    		email,
+	    	introduction,
+	    	region,
+	    	homepage,
+	    	img_file,
+	    	img_type
+    	FROM user_tb
+    	WHERE userid
+    	NOT IN (
+    	SELECT whom FROM usertouser_tb
+    	WHERE who = #{userId} )
+    	AND userid != #{userId}
+    </select>
+    
+    <select id="selectAllFriends" parameterType="string" resultMap="result-user">
+    	SELECT
+    		a.userid,
+    		a.name,
+    		a.email,
+	    	a.introduction,
+	    	a.region,
+	    	a.homepage,
+	    	a.img_file,
+	    	a.img_type,
+	    	a.user_status,
+	    	a.renew_date
+    	FROM user_tb a
+    	INNER JOIN usertouser_tb b
+    	ON a.userid = b.who
+    	WHERE b.who 
+    		IN (SELECT whom 
+    			FROM usertouser_tb 
+    			WHERE who = #{userId})
+    	AND b.whom = #{userId}
+    </select>
+
+	<insert id="insertUser" parameterType="User">
+		INSERT 
+		INTO user_tb ( 
+			userid, name, email, password )
+		VALUES (
+			#{userId}, #{name}, #{email}, #{password} )
+	</insert>
+	
+	<update id="updateUser" parameterType="User">
+		UPDATE 
+			user_tb
+		SET 
+			name = #{name}, email = #{email}, password = #{password}
+		WHERE userid = #{userId}
+	</update>
+	
+	<update id="updateUserProfile" parameterType="User">
+		UPDATE 
+			user_tb
+		SET 
+	    	introduction = #{profile.introduction},
+	    	region = #{profile.region}, homepage = #{profile.homepage},
+	    	img_file = #{profile.image.fileName}, img_type = #{profile.image.contentType}
+		WHERE userid = #{userId}
+	</update>
+	
+	<update id="updateUserStatus" parameterType="User">
+		UPDATE 
+			user_tb
+		SET 
+	    	user_status = #{userStatus.userStatus},
+	    	renew_date = sysdate()
+		WHERE userid = #{userId}
+	</update>
+	
+	<delete id="deleteUser" parameterType="string">
+		DELETE 
+		FROM user_tb 
+		WHERE userid = #{userId}
+	</delete>
+
+</mapper>

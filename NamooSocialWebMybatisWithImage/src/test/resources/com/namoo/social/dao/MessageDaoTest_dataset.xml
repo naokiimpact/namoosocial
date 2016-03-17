@@ -1,0 +1,25 @@
+<dataset>
+	
+	<user_tb userid="user1" name="유저1" email="user1@msg.com" password="1234" />
+	<user_tb userid="user2" name="유저2" email="user2@msg.com" password="1234" />
+	<user_tb userid="user3" name="유저3" email="user3@msg.com" password="1234" />
+	<user_tb userid="user4" name="유저4" email="user4@msg.com" password="1234" />
+	
+	<usertouser_tb who="user1" whom="user2" />
+	<usertouser_tb who="user1" whom="user3" />
+	<usertouser_tb who="user2" whom="user3" />
+	<usertouser_tb who="user3" whom="user1" />
+	<usertouser_tb who="user3" whom="user2" />
+	
+	<message_tb msg_no="1" contents="메시지1" writer="user1" reg_dt="2014-04-11 12:25:20" />
+	<message_tb msg_no="2" contents="메시지2" writer="user2" reg_dt="2014-04-14 12:35:20" />
+	<message_tb msg_no="3" contents="메시지3" writer="user2" reg_dt="2014-04-18 12:15:20" />
+	<message_tb msg_no="4" contents="메시지4" writer="user3" reg_dt="2014-04-12 12:25:20" />
+	<message_tb msg_no="5" contents="메시지5" writer="user3" reg_dt="2014-04-15 12:35:20" />
+	<message_tb msg_no="6" contents="메시지6" writer="user3" reg_dt="2014-04-11 12:45:20" />
+	<message_tb msg_no="7" contents="메시지7" writer="user4" reg_dt="2014-04-18 12:05:20" />
+	<message_tb msg_no="8" contents="메시지8" writer="user4" reg_dt="2014-04-12 12:05:20" />
+	<message_tb msg_no="9" contents="메시지9" writer="user4" reg_dt="2014-04-13 12:25:20" />
+	<message_tb msg_no="10" contents="메시지10" writer="user4" reg_dt="2014-04-18 12:15:20" />
+	
+</dataset>

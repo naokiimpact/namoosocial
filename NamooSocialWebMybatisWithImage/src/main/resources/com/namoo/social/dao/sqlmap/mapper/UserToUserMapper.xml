@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.namoo.social.dao.sqlmap.mapper.UserToUserMapper">
+    
+    <resultMap type="UserToUser" id="result-usertouser">
+    	<id property="userId" column="who" javaType="string"/>
+    	<id property="targetId" column="whom" javaType="string"/>
+    </resultMap>
+    
+    <select id="selectUserToUser" parameterType="UserToUser" resultMap="result-usertouser">
+    	SELECT
+    		who,
+    		whom
+    	FROM usertouser_tb
+    	WHERE who = #{userId} 
+    	AND whom = #{targetId}
+    </select>
+    
+	<insert id="insertUserToUser" parameterType="UserToUser">
+		INSERT INTO 
+			usertouser_tb ( 
+			who, whom )
+		VALUES ( 
+			#{userId}, #{targetId} )
+	</insert>
+	
+	<delete id="deleteAllUserToUserByUserId" parameterType="string">
+		DELETE 
+		FROM usertouser_tb 
+		WHERE who = #{userId} 
+		OR whom = #{userId}
+	</delete>
+
+	<delete id="deleteUserToUser" parameterType="UserToUser">
+		DELETE 
+		FROM usertouser_tb 
+		WHERE who = #{userId}
+		AND whom = #{targetId}
+	</delete>
+</mapper>

@@ -1,0 +1,190 @@
+.side {
+	text-align: center;
+}
+
+.sideProfile {
+	min-height: 100px;
+	height: auto !important;
+}
+
+#mainProfileImg {
+	margin: 5px;
+	border-radius: 10px;
+	width: 50%;
+	margin-left: 25%;
+	max-height: 100px;
+}
+
+.profileName {
+	font-size: 20px;
+}
+
+.sideProfileHR {
+	margin: 0;
+	border: 1px solid #dddddd;
+}
+
+.sideProfileCount {
+	font-size: 15px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.sideCountDivF {
+	float: left;
+	width: 34%;
+}
+
+.sideCountDivM {
+	float: left;
+	width: 32%;
+}
+
+.sideCountTitle {
+	font-size: 8px;
+	color: #aaaaaa;
+}
+
+.sideCountNo {
+	color: #55acee;
+	font-weight: bold;
+}
+
+.mainDiv {
+	margin-left: 9%;
+}
+
+.noRecoDiv {
+	text-align: center;
+	width: 90%;
+	border: 1px solid #cccccc;
+	padding: 10%;
+	margin-left: 5%;
+	margin-bottom: 10px;
+	border-radius: 10px;
+}
+
+.recoControlDiv {
+	margin-left: 7%;
+}
+
+.recoDiv {
+	margin-left: 7%;
+}
+
+.recoGroup {
+	text-align: center;
+	width: 30%;
+	float: left;
+	border: 1px solid #cccccc;
+	margin: 10px 10px 20px 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 10px;
+	min-height: 200px;
+	height: auto !important;
+}
+
+.recoProfileDiv {
+	min-height: 140px;
+	height: auto !important;
+}
+
+.recoImg {
+	margin: 10px;
+	border-radius: 10px;
+	width: 60%;
+	margin-left: 20%;
+	height: 80px;
+}
+
+.followBtn {
+	color: #444444;
+	font-weight: bold;
+	margin-bottom: 10%;
+}
+
+.followBtnIcon {
+	color: #55acee;
+}
+
+#more {
+	padding: 2%;
+	text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+	.sideProfile {
+		margin: 0;
+		padding: 0;
+	}
+	
+	#mainProfileImg {
+		border-radius: 10px;
+		width: 100%;
+		margin: 5px;
+	}
+	.profileName {
+		font-size: 10px;
+	}
+	.sideProfileCount {
+		margin-bottom: 10px;
+	}
+	.sideCountDivF {
+		float: inherit;
+		width: 100%;
+	}
+	
+	.sideCountDivM {
+		float: inherit;
+		width: 100%;
+	}
+	.sideCountNo {
+		font-size: 10px;
+		color: #55acee;
+		font-weight: bold;
+	}
+	
+	.recoControlDiv {
+		margin-left: 0;
+		margin-top: 20%;
+	}
+	
+	.recoDiv {
+		margin-left: 0;
+	}
+	
+	.recoGroup {
+		text-align: center;
+		width: 29%;
+		float: left;
+		border: 1px solid #cccccc;
+		margin: 3px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		border-radius: 10px;
+		min-height: 50px;
+		height: auto !important;
+	}
+	
+	.recoProfileDiv {
+		min-height: 20px;
+		max-height: 20px;
+		height: auto !important;
+	}
+	
+	.recoImg {
+		magin: 0;
+		padding: 0;	
+	}
+	
+	.followBtn {
+		font-size: 10px;
+		margin-top: 5px;
+		padding: 3px;
+	}
+	
+	.followBtnIcon {
+		display: none;
+	}
+}
