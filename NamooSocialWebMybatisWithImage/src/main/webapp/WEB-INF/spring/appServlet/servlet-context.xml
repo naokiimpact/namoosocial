@@ -23,7 +23,7 @@
 	</util:properties> -->
 	
 	<!-- <util:properties id="profile">
-		<beans:prop key="imageRootPath">/var/lib/tomcat7/webapps/NSSavedImg/</beans:prop>
+		<beans:prop key="imageRootPath">/var/lib/tomcat7/webapps/NSSavedIMG/</beans:prop>
 	</util:properties> -->
 	
 

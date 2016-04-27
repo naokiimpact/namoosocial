@@ -106,7 +106,7 @@ body {
 
 		<!-- footer -->
 		<div class="login-footer">
-			<p>&copy; K 2014</p>
+			<p>&copy; K 2016</p>
 		</div>
 	</div>
 

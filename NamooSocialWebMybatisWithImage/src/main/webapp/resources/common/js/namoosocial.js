@@ -271,9 +271,12 @@ $(document).ready(function() {
 						,type : "post"
 						,dataType : "json"
 				        ,success : function(data) {
+				        	$('#navi_login_user_anchor_img')
+							.attr('src', nsjs.ctx + '/user/profile/' + data.userId + '/image?a=' + Math.random());
 				    		$('#modify').html(
 				    		'<i class="glyphicon glyphicon-edit"></i>');
-				    		$('#mainProfileImg').attr('src', nsjs.ctx + '/user/profile/' + data.userId + '/image?a=' + Math.random());
+				    		$('#mainProfileImg')
+				    		.attr('src', nsjs.ctx + '/user/profile/' + data.userId + '/image?a=' + Math.random());
 				    		getProfile(data.userId);
 				    	}
 				
@@ -540,8 +543,7 @@ $(document).ready(function() {
 			,dataType : "json"
 			,success : function(data) {
 				getProfile(data.userId);
-				$('#modify').html(
-				'<i class="glyphicon glyphicon-edit"></i>');
+				$('#modify').html('<i class="glyphicon glyphicon-edit"></i>');
 			}
 		});
 	}
